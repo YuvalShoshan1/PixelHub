@@ -1,0 +1,8 @@
+main: me.Yuval.pixelhub.PixelHub
+name: PixelHub
+version: 1.1.0
+author: Yuval Shoshan
+
+commands:
+  settings:
+    description: The main plugin command.

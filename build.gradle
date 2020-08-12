@@ -1,0 +1,35 @@
+import sun.nio.cs.UTF_8
+
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '5.2.0'
+}
+
+group = 'me.Yuval'
+version = '1.1'
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven { url 'https://jitpack.io/' }
+    maven { url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
+}
+
+dependencies {
+    compileOnly 'org.spigotmc:spigot:1.8.8-R0.1-SNAPSHOT'
+    implementation 'me.mattstudios.utils:matt-framework:1.4'
+    implementation "me.mattstudios.utils:matt-framework-gui:2.0.2"
+}
+
+shadowJar {
+    archivesBaseName = 'PixelHub'
+    relocate 'me.mattstudios.mf', 'me.Yuval.PixelHub.mf'
+    relocate 'me.mattstudios.mfgui', 'me.Yuval.PixelHub.mf'
+}
+
+compileJava {
+    options.encoding = "UTF-8"
+}
